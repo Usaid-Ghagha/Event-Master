@@ -1,4 +1,8 @@
 /* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,112 +22,85 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
-.container #Logo {
-    width: 200px;
-    position: relative;
-    top: 10px;
-    left: -30px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
 
-.container #Logo2 {
-    width: 500px;
-    position: relative;
-    top: -45px;
-    left: 150px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    text-align: center;
-}
-
-@media (max-width: 1024px) {
-    .container {
-        text-align: center;
-    }
-
-    .container #Logo {
-        width: 150px;
-        left: 0;
-        top: 0;
-        margin: 0 auto;
-    }
-
-    .container #Logo2 {
-        width: 350px;
-        top: 10px;
-        left: 150px;
-        margin: 0 auto;
-    }
-}
-
-/* For small screens (e.g., smartphones and very small laptops) */
-@media (max-width: 768px) {
-    .container {
-        text-align: center;
-    }
-
-    .container #Logo {
-        width: 120px;
-        left: 0;
-        top: 0;
-        margin: 0 auto;
-    }
-
-    .container #Logo2 {
-        width: 250px;
-        top: 10px;
-        left: 0px;
-        margin: 0 auto;
-    }
-}
-
-/* For very small screens (smartphones) */
-@media (max-width: 480px) {
-    .container #Logo {
-        width: 100px;
-    }
-
-    .container #Logo2 {
-        width: 200px;
-        top: 20px;
-    }
-}
-
-/* Header Styles */
+/* Header Section */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
 }
 
-header h1 {
-    text-align: center;
-    margin: 0;
-    font-size: 2rem;
+/* Centered Logo + Company Name */
+.logo-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 1rem 0 0;
+/* Logo Images - larger and aligned */
+#Logo {
+  height: 70px;
+  width: auto;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+#Logo2 {
+  height: 60px;
+  width: auto;
+  position: relative;
+  top: -5px; /* lift it slightly for better alignment */
 }
 
-header nav ul li a:hover {
-    color: #f39c12;
+/* Navigation Menu Centered */
+.nav-wrapper {
+  text-align: center;
 }
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-list a:hover {
+  color: #f39c12;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .logo-line {
+    flex-direction: column;
+  }
+
+  #Logo {
+    height: 60px;
+  }
+
+  #Logo2 {
+    height: 50px;
+    top: 0; /* reset position on mobile */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 
 /* Hero Section */
 .hero {
@@ -157,12 +134,13 @@ header nav ul li a:hover {
     background: #e67e22;
 }
 
-/* Section Styles */
+/* Section Base Styles */
 section {
     padding: 3rem 1rem;
     text-align: center;
 }
 
+/* Featured Events */
 .featured-events .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -217,11 +195,12 @@ section {
 }
 
 /* Contact Form */
-.contact-form{
+.contact-form {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 1rem;
 }
+
 .contact-form form {
     max-width: 600px;
     margin: 0 auto;
@@ -254,9 +233,11 @@ section {
 .contact-form form button:hover {
     background: #e67e22;
 }
-.contact-form img{
+
+.contact-form img {
     width: 400px;
 }
+
 /* Gallery */
 .gallery .gallery-grid {
     display: grid;
@@ -271,6 +252,65 @@ section {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Services */
+.services-list .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.services-list .service {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.services-list .service img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.services-list .service h3,
+.services-list .service p {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Team */
+.team .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.team-grid .team-member {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 750px;
+}
+
+.team-grid .team-member img {
+    width: 100%;
+    height: 80%;
+    object-fit: fill;
+}
+
+.team-grid .team-member h3,
+.team-grid .team-member p {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 /* Footer */
@@ -297,60 +337,4 @@ footer .social-links a {
 footer .social-links img {
     width: 24px;
     height: 24px;
-}
-/* Services */
-section {
-    padding: 3rem 1rem;
-    text-align: center;
-}
-.services-list .service-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-.services-list .service{
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.services-list .service img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.services-list .service h3,p{
-    margin: 1rem 0;
-    font-size: 1.5rem;
-    color: #333;
-}
-section {
-    padding: 3rem 1rem;
-    text-align: center;
-}
-.team .team-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-.team-grid .team-member{
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 750px;
-}
-.team-grid .team-member img{
-    width: 100%;
-    height: 80%;
-    object-fit:fill;
-}
-.team-grid .team-member h3,p{
-    margin: 1rem 0;
-    font-size: 1.5rem;
-    color: #333;
 }
